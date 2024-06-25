@@ -2,10 +2,16 @@ allow_embedding: false
 package_name: SAT_Example_Jamie
 name: SAT Example Jamie
 startup_form: Form1
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+runtime_options:
+  version: 3
+  client_version: '3'
+  server_version: python3-full
+  server_spec: null
+  legacy_features: {class_names: true, bootstrap3: true, __dict__: true, root_container: true}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
 metadata: {title: SAT Example}
 db_schema: {}
+native_deps: null
