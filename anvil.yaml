@@ -1,6 +1,6 @@
 allow_embedding: false
-package_name: SAT_Example_Jamie
-name: SAT Example Jamie
+package_name: SAT
+name: SAT
 startup_form: null
 runtime_options:
   version: 3
@@ -21,7 +21,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-metadata: {title: SAT Example}
+metadata: {title: SAT}
 db_schema:
   users:
     client: none
