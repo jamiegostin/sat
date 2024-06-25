@@ -15,8 +15,8 @@ class Form1(Form1Template):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.text_box_1.hide_text = not self.text_box_1.hide_text
-    if self.text_box_1.hide_text:
+    self.text_box_pass.hide_text = not self.text_box_pass.hide_text
+    if self.text_box_pass.hide_text:
       self.button_1.icon = 'fa:eye-slash'
     else:
       self.button_1.icon = 'fa:eye'
@@ -27,14 +27,14 @@ class Form1(Form1Template):
 
   def login_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if self.text_box_email.text == '' or self.text_box_pass.text == '':
-      alert('You must enter a username and password.')
+    if self.text_box_email.text == '' or self.text_box_box_pass.text == '':
+      alert('You must enter a username and box_password.')
     else:
       email = self.text_box_email.text
-    password = self.text_box_pass.text
+    box_password = self.text_box_box_pass.text
     remember = self.check_box_remember
     try:
-      anvil.users.login_with_email(email, password, remember)
+      anvil.users.login_with_email(email, box_password, remember)
       open_form('Form3')
     except anvil.users.AuthenticationFailed:
-      alert('The username or password is incorrect.')
+      alert('The username or box_password is incorrect.')
