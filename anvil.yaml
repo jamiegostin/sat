@@ -16,3 +16,7 @@ metadata: {title: SAT Example}
 db_schema: {}
 native_deps: null
 startup: {type: form, module: Form1}
+dependencies:
+- dep_id: dep_psxwe2xgjaiq73ib
+  version: {dev: false}
+  resolution_hints: {app_id: ZQATVANDWC5VTDCL, name: Custom sign-up flow, package_name: custom_signup}
