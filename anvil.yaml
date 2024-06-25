@@ -13,7 +13,7 @@ services:
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: true, use_email: true, confirm_email: true}
+  client_config: {allow_signup: false, enable_automatically: true, use_email: true, confirm_email: true, use_google: false, use_facebook: false, require_secure_passwords: false}
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
@@ -48,6 +48,9 @@ db_schema:
     - name: link_key
       admin_ui: {width: 200, order: 7}
       type: string
+    - name: signed_up
+      admin_ui: {order: 8, width: 200}
+      type: datetime
     title: Users
 native_deps: null
 startup: {type: form, module: Form1}
