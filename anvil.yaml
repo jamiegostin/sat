@@ -1,7 +1,7 @@
 allow_embedding: false
 package_name: SAT_Example_Jamie
 name: SAT Example Jamie
-startup_form: Form1
+startup_form: null
 runtime_options:
   version: 3
   client_version: '3'
@@ -15,3 +15,4 @@ services:
 metadata: {title: SAT Example}
 db_schema: {}
 native_deps: null
+startup: {type: form, module: Form1}

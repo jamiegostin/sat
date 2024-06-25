@@ -13,9 +13,10 @@ components:
     type: Link
     layout_properties: {}
 - name: headline_log_in
-  properties: {role: headline, icon: '', text: Log In}
+  properties: {role: headline, icon: '', text: Log In, font: '', font_size: null}
   type: Label
   layout_properties: {slot: title}
+  data_bindings: []
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
@@ -33,7 +34,7 @@ components:
     - name: text_box_1
       properties: {placeholder: Password, hide_text: true}
       type: TextBox
-      layout_properties: {width: 904.6146259765625}
+      layout_properties: {width: 904.6146259765625, expand: true}
       data_bindings: []
     - name: button_1
       properties:
@@ -41,6 +42,7 @@ components:
 
         icon: fa:eye-slash
         icon_align: left
+        role: null
       type: Button
       layout_properties: {}
       event_bindings: {click: button_1_click}
