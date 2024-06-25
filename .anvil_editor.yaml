@@ -5,8 +5,7 @@ unique_ids:
     scr_main: '1719282618894232840438489.30637'
     scr_signup: '1719282077962252351335433.64108'
   modules: {}
-  server_modules:
-    ServerModule1: '1719290145332748474199269.6357'
+  server_modules: {}
   assets:
     standard-page.html: BGIMT3OO2E5FWN7IGAQ5WVXVNLQ2V5QI
     theme.css: LOF7QN6RFUPBDQECKWK4AVPX6M667FH5
