@@ -12,6 +12,20 @@ components:
     properties: {text: The main page is here. Click above to log out.}
     type: Label
     layout_properties: {grid_position: 'QGYLKO,RKMPDR'}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: JKSDUP, title: Song, data_key: song_name}
+      - {id: VJQQOR, title: Artist, data_key: artist_name}
+      - {id: OJLQEN, title: Album, data_key: album_name}
+      - {id: PHIEDR, data_key: release_year, title: Year}
+      - {id: LWHGHN, data_key: tempo, title: BPM}
+    type: DataGrid
+    components:
+    - name: repeating_panel_metadata
+      properties: {item_template: scr_main.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'RJFSZP,GKWPQV'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

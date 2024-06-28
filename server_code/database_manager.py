@@ -8,6 +8,5 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def set_write_perms(login, perms=False):
-  user = app_tables.users.get(email=login)
-  user['write_access'] = perms
+def get_songs():
+  return app_tables.test_123.search()

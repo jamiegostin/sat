@@ -12,7 +12,8 @@ class scr_main(scr_mainTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+    # Initialise test dataset
+    self.repeating_panel_metadata.items = anvil.server.call('get_songs')
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

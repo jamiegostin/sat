@@ -3,9 +3,13 @@ unique_ids:
     scr_login: OWKRAQYBKZ6P7PGUFM72E3N37HMYVVFE
     scr_login.ItemTemplate1: '1719193782653202317590915.72067'
     scr_main: '1719282618894232840438489.30637'
+    scr_main.ItemTemplate2: '1719547979632370015730000.8356'
+    scr_main.ItemTemplate3: '1719548390573113772111531.1221'
+    scr_main.RowTemplate1: '1719547834180995257101938.0494'
     scr_signup: '1719282077962252351335433.64108'
   modules: {}
   server_modules:
+    database_manager: '171954831535292374539647.9787'
     set_user_permissions: '1719317113009496506567342.62744'
   assets:
     standard-page.html: BGIMT3OO2E5FWN7IGAQ5WVXVNLQ2V5QI
