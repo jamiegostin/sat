@@ -15,13 +15,28 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: Song, data_key: song_name}
-      - {id: VJQQOR, title: Artist, data_key: artist_name}
-      - {id: OJLQEN, title: Album, data_key: album_name}
-      - {id: PHIEDR, data_key: release_year, title: Year}
-      - {id: LWHGHN, data_key: tempo, title: BPM}
+      - {id: JKSDUP, title: Song, data_key: Title}
+      - {id: VJQQOR, title: Artist, data_key: Artist}
+      - {id: OJLQEN, title: Album, data_key: Album}
+      - {id: PHIEDR, data_key: Year, title: Year}
+      - {id: LWHGHN, data_key: BPM, title: BPM}
+      - {id: GXQGLP, data_key: Genre, title: Genre}
     type: DataGrid
     components:
+    - name: flow_panel_1
+      properties: {}
+      type: FlowPanel
+      components:
+      - name: text_box_filter_table
+        properties: {placeholder: Search for a song...}
+        type: TextBox
+        layout_properties: {expand: true}
+        event_bindings: {pressed_enter: filter_table}
+      - name: btn_filter_table
+        properties: {text: Search, role: primary-color, icon: 'fa:search'}
+        type: Button
+        layout_properties: {}
+        event_bindings: {click: filter_table}
     - name: repeating_panel_metadata
       properties: {item_template: scr_main.RowTemplate1}
       type: RepeatingPanel

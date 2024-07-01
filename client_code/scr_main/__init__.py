@@ -19,3 +19,9 @@ class scr_main(scr_mainTemplate):
     """This method is called when the link is clicked"""
     anvil.users.logout()
     open_form('scr_login')
+
+  def filter_table(self, **event_args):
+    self.repeating_panel_metadata.items = anvil.server.call(
+      'search_songs',
+      self.text_box_filter_table.text
+    )

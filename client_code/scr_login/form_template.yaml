@@ -36,6 +36,7 @@ components:
       type: TextBox
       layout_properties: {width: 904.6146259765625, expand: true}
       data_bindings: []
+      event_bindings: {pressed_enter: log_in}
     - name: btn_hide
       properties:
         text: |2+
@@ -55,7 +56,7 @@ components:
       properties: {text: Log In, role: primary-color}
       type: Button
       layout_properties: {}
-      event_bindings: {click: btn_login_click}
+      event_bindings: {click: log_in}
     - name: chk_remember
       properties: {text: Remember me}
       type: CheckBox

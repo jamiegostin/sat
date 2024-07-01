@@ -11,7 +11,7 @@ runtime_options:
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
-  server_config: {}
+  server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true}
   server_config:
@@ -23,9 +23,6 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
-  server_config: {file_table: files}
 metadata: {title: SAT}
 db_schema:
   users:
@@ -60,40 +57,12 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     title: Users
-  files:
+  metadata:
     client: none
     server: full
-    columns:
-    - name: path
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: file
-      admin_ui: {order: 1, width: 200}
-      type: media
-    - name: file_version
-      admin_ui: {order: 2, width: 200}
-      type: string
-    title: Files
-  test_123:
-    client: none
-    server: full
-    columns:
-    - name: song_name
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: artist_name
-      admin_ui: {width: 200, order: 1}
-      type: string
-    - name: album_name
-      admin_ui: {width: 200, order: 2}
-      type: string
-    - name: release_year
-      admin_ui: {width: 200, order: 3}
-      type: number
-    - name: tempo
-      admin_ui: {width: 200, order: 4}
-      type: number
-    title: test_123
+    columns: []
+    title: Metadata
 native_deps: null
 startup: {type: form, module: scr_login}
 dependencies: []
+uplink_visible: true
