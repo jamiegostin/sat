@@ -26,43 +26,61 @@ services:
 metadata: {title: SAT}
 db_schema:
   users:
+    title: Users
     client: none
     server: full
     columns:
     - name: email
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: enabled
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: bool
     - name: last_login
-      admin_ui: {order: 2, width: 200}
+      admin_ui: {width: 200}
       type: datetime
     - name: password_hash
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: n_password_failures
-      admin_ui: {order: 4, width: 200}
+      admin_ui: {width: 200}
       type: number
     - name: confirmed_email
-      admin_ui: {order: 5, width: 200}
+      admin_ui: {width: 200}
       type: bool
-    - name: signed_up
-      admin_ui: {order: 8, width: 200}
-      type: datetime
     - name: write_access
       admin_ui: {width: 200}
       type: bool
+    - name: signed_up
+      admin_ui: {width: 200}
+      type: datetime
     - name: email_confirmation_key
       admin_ui: {width: 200}
       type: string
-    title: Users
   metadata:
+    title: Metadata
     client: none
     server: full
-    columns: []
-    title: Metadata
+    columns:
+    - name: Title
+      admin_ui: {width: 200}
+      type: string
+    - name: Artist
+      admin_ui: {width: 200}
+      type: string
+    - name: Album
+      admin_ui: {width: 200}
+      type: string
+    - name: Year
+      admin_ui: {width: 200}
+      type: number
+    - name: BPM
+      admin_ui: {width: 200}
+      type: number
+    - name: Genre
+      admin_ui: {width: 200}
+      type: string
 native_deps: null
-startup: {type: form, module: scr_login}
+startup: {type: form, module: scr_main}
 dependencies: []
 uplink_visible: true

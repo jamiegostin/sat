@@ -23,3 +23,15 @@ def search_songs(query):
       or query in str(x['BPM'])
     ]
     return result
+
+@anvil.server.callable
+def add_song(title, artist, album, year, tempo, genre):
+  app_tables.metadata.add_row(Title=title, Artist=artist, Album=album, Year=year, BPM=tempo, Genre=genre)
+
+@anvil.server.callable
+def edit_song(song, title, artist, album, year, tempo, genre):
+  song.update(Title=title, Artist=artist, Album=album, Year=year, BPM=tempo, Genre=genre)
+
+@anvil.server.callable
+def sort(genre):
+  return app_tables.metadata.search(Genre=genre)

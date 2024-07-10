@@ -1,3 +1,58 @@
 is_package: true
-container: {type: DataRowPanel}
-components: []
+container:
+  type: DataRowPanel
+  data_bindings: []
+  properties: {auto_display_data: true, align: left, visible: true, bold: false}
+components:
+- name: text_box_edit_song
+  properties: {}
+  type: TextBox
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''Title'']', writeback: false}
+- name: text_box_edit_artist
+  properties: {}
+  type: TextBox
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''Artist'']', writeback: false}
+- name: text_box_edit_album
+  properties: {}
+  type: TextBox
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''Album'']', writeback: false}
+- name: text_box_edit_year
+  properties: {}
+  type: TextBox
+  layout_properties: {column: PHIEDR}
+  data_bindings:
+  - {property: text, code: 'self.item[''Year'']', writeback: false}
+- name: text_box_edit_tempo
+  properties: {}
+  type: TextBox
+  layout_properties: {column: LWHGHN}
+  data_bindings:
+  - {property: text, code: 'self.item[''BPM'']', writeback: false}
+- name: drop_down_edit_genre
+  properties:
+    items: [Alternative, Rock, Hip-hop, Soul, R&B]
+  type: DropDown
+  layout_properties: {column: GXQGLP}
+  data_bindings:
+  - {property: selected_value, code: 'self.item[''Genre'']', writeback: false}
+- name: xy_panel_1
+  properties: {height: 15.6666259765625}
+  type: XYPanel
+  layout_properties: {column: DBXYHG}
+  components:
+  - name: button_save_edits
+    properties: {text: '', icon: 'fa:save'}
+    type: Button
+    layout_properties: {x: 0, y: 0, width: 57.3854}
+    event_bindings: {click: button_save_edits_click}
+  - name: button_compare_song
+    properties: {text: '', icon: 'fa:arrow-right'}
+    type: Button
+    layout_properties: {x: 68.19792175292969, y: 0, width: 56.375}
+    event_bindings: {click: button_compare_song_click}

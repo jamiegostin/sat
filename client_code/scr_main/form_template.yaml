@@ -15,12 +15,13 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: Song, data_key: Title}
+      - {id: JKSDUP, title: Song, data_key: Title, expand: false}
       - {id: VJQQOR, title: Artist, data_key: Artist}
       - {id: OJLQEN, title: Album, data_key: Album}
       - {id: PHIEDR, data_key: Year, title: Year}
       - {id: LWHGHN, data_key: BPM, title: BPM}
       - {id: GXQGLP, data_key: Genre, title: Genre}
+      - {id: DBXYHG, data_key: '', title: ''}
     type: DataGrid
     components:
     - name: flow_panel_1
@@ -37,6 +38,41 @@ components:
         type: Button
         layout_properties: {}
         event_bindings: {click: filter_table}
+    - name: data_row_add_entry
+      properties: {}
+      type: DataRowPanel
+      components:
+      - name: text_box_new_song
+        properties: {placeholder: Title}
+        type: TextBox
+        layout_properties: {column: JKSDUP}
+      - name: text_box_new_artist
+        properties: {placeholder: Artist}
+        type: TextBox
+        layout_properties: {column: VJQQOR}
+      - name: text_box_new_album
+        properties: {placeholder: Album}
+        type: TextBox
+        layout_properties: {column: OJLQEN}
+      - name: drop_down_new_genre
+        properties:
+          items: [Alternative, Rock, Hip-hop, Soul, R&B]
+        type: DropDown
+        layout_properties: {column: GXQGLP}
+        data_bindings: []
+      - name: text_box_new_tempo
+        properties: {placeholder: BPM}
+        type: TextBox
+        layout_properties: {column: LWHGHN}
+      - name: btn_new_record
+        properties: {text: +}
+        type: Button
+        layout_properties: {column: DBXYHG}
+        event_bindings: {click: btn_new_record_click}
+      - name: text_box_new_year
+        properties: {placeholder: Year}
+        type: TextBox
+        layout_properties: {column: PHIEDR}
     - name: repeating_panel_metadata
       properties: {item_template: scr_main.RowTemplate1}
       type: RepeatingPanel
