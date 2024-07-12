@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+from ...scr_result import closest_matches as results
 
 class RowTemplate1(RowTemplate1Template):
   def __init__(self, **properties):
@@ -27,19 +27,12 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_compare_song_click(self, **event_args):
     """This method is called when the button is clicked"""
-    songs_by_genre = [[
-        r['Title'],
-        r['Artist'],
-        r['Album'],
-        r['Year'],
-        r['BPM'],
-        r['Genre'],
-    ]
-      for r in anvil.server.call('sort', self.drop_down_edit_genre.selected_value)
-    ]
-    # DEBUG
-    print(sort_by_tempo(songs_by_genre, int(self.text_box_edit_tempo.text)))
-    
-def sort_by_tempo(array, selected_tempo):
-  songs_by_tempo = sorted(array, key=lambda x: abs(x[4] - selected_tempo))
-  return songs_by_tempo
+    filtered = anvil.server.call('filter_by_genre', self.drop_down_edit_genre.selected_value)
+
+    # Clear any pre-existing results and write new matches
+    results.clear()
+    for k in anvil.server.call('sort_by_tempo', filtered, int(self.text_box_edit_tempo.text)):
+      if not k[0] == self.text_box_edit_song.text:
+        results.append(k)
+
+    anvil.open_form('scr_result')

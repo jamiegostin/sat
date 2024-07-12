@@ -8,10 +8,6 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - name: label_1
-    properties: {text: The main page is here. Click above to log out.}
-    type: Label
-    layout_properties: {grid_position: 'QGYLKO,RKMPDR'}
   - name: data_grid_1
     properties:
       columns:

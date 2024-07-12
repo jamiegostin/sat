@@ -33,5 +33,20 @@ def edit_song(song, title, artist, album, year, tempo, genre):
   song.update(Title=title, Artist=artist, Album=album, Year=year, BPM=tempo, Genre=genre)
 
 @anvil.server.callable
-def sort(genre):
-  return app_tables.metadata.search(Genre=genre)
+def filter_by_genre(genre):
+  songs_by_genre = [[
+        r['Title'],
+        r['Artist'],
+        r['Album'],
+        r['Year'],
+        r['BPM'],
+        r['Genre'],
+    ]
+      for r in app_tables.metadata.search(Genre=genre)
+    ]
+  return songs_by_genre
+
+@anvil.server.callable
+def sort_by_tempo(array, selected_tempo):
+  songs_by_tempo = sorted(array, key=lambda x: abs(x[4] - selected_tempo))
+  return songs_by_tempo
