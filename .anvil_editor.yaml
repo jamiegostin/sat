@@ -9,7 +9,7 @@ unique_ids:
   modules: {}
   server_modules:
     database_manager: '171954831535292374539647.9787'
-    set_user_permissions: '1719317113009496506567342.62744'
+    permission_manager: '1719317113009496506567342.62744'
   assets:
     standard-page.html: BGIMT3OO2E5FWN7IGAQ5WVXVNLQ2V5QI
     theme.css: LOF7QN6RFUPBDQECKWK4AVPX6M667FH5

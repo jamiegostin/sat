@@ -29,26 +29,29 @@ class scr_main(scr_mainTemplate):
 
   def btn_new_record_click(self, **event_args):
     """This method is called when the button is clicked"""
-    title = self.text_box_new_song.text
-    artist = self.text_box_new_artist.text
-    album = self.text_box_new_album.text
-    year = int(self.text_box_new_year.text)
-    tempo = int(self.text_box_new_tempo.text)
-    genre = self.drop_down_new_genre.selected_value
+    if anvil.server.call('get_write_perms'):
+      title = self.text_box_new_song.text
+      artist = self.text_box_new_artist.text
+      album = self.text_box_new_album.text
+      year = int(self.text_box_new_year.text)
+      tempo = int(self.text_box_new_tempo.text)
+      genre = self.drop_down_new_genre.selected_value
 
-    anvil.server.call('add_song',
-                    title=title,
-                    artist=artist,
-                    album=album,
-                    year=year,
-                    tempo=tempo,
-                    genre=genre)
+      anvil.server.call('add_song',
+                      title=title,
+                      artist=artist,
+                      album=album,
+                      year=year,
+                      tempo=tempo,
+                      genre=genre)
 
-    self.repeating_panel_metadata.items = anvil.server.call('get_songs')
+      self.repeating_panel_metadata.items = anvil.server.call('get_songs')
+    else:
+      alert('You do not have permission to edit the database.')
 
     self.text_box_new_song.text = ''
     self.text_box_new_artist.text = ''
     self.text_box_new_album.text = ''
-    self.text_box_new_year = ''
-    self.text_box_new_tempo.text.text = ''
+    self.text_box_new_year.text = ''
+    self.text_box_new_tempo.text = ''
     self.drop_down_new_genre.selected_value = 'Alternative'

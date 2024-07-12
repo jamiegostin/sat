@@ -81,6 +81,6 @@ db_schema:
       admin_ui: {width: 200}
       type: string
 native_deps: null
-startup: {type: form, module: scr_main}
+startup: {type: form, module: scr_login}
 dependencies: []
 uplink_visible: true

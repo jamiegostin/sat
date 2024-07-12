@@ -16,14 +16,17 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_save_edits_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('edit_song',
-                     self.item,
-                     title=self.text_box_edit_song.text,
-                     artist=self.text_box_edit_artist.text,
-                     album=self.text_box_edit_album.text,
-                     year=int(self.text_box_edit_year.text),
-                     tempo=int(self.text_box_edit_tempo.text),
-                     genre = self.drop_down_edit_genre.selected_value)
+    if anvil.server.call('get_write_perms'):
+      anvil.server.call('edit_song',
+                        self.item,
+                        title=self.text_box_edit_song.text,
+                        artist=self.text_box_edit_artist.text,
+                        album=self.text_box_edit_album.text,
+                        year=int(self.text_box_edit_year.text),
+                        tempo=int(self.text_box_edit_tempo.text),
+                        genre = self.drop_down_edit_genre.selected_value)
+    else:
+      alert('You do not have permission to edit the database.')
 
   def button_compare_song_click(self, **event_args):
     """This method is called when the button is clicked"""
