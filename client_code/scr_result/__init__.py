@@ -18,6 +18,10 @@ class scr_result(scr_resultTemplate):
     self.lbl_match2.text = closest_matches[1][0]
     self.lbl_match3.text = closest_matches[2][0]
 
+    self.lbl_album1.text = closest_matches[0][2]
+    self.lbl_album2.text = closest_matches[1][2]
+    self.lbl_album3.text = closest_matches[2][2]
+
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass

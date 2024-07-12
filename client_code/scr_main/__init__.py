@@ -13,11 +13,8 @@ class scr_main(scr_mainTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Initialise test dataset
+    # Initialise the dataset
     self.repeating_panel_metadata.items = anvil.server.call('get_songs')
-    all_songs = anvil.server.call('get_songs')
-    genres = [song['Genre'] for song in all_songs]
-    #self.drop_down_new_genre.items = sorted(list(set(genres)))
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
