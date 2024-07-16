@@ -29,6 +29,7 @@ class scr_main(scr_mainTemplate):
 
   def btn_new_record_click(self, **event_args):
     """This method is called when the button is clicked"""
+    
     if anvil.server.call('get_write_perms'):
       title = self.text_box_new_song.text
       artist = self.text_box_new_artist.text
