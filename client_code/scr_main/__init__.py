@@ -22,37 +22,47 @@ class scr_main(scr_mainTemplate):
     open_form('scr_login')
 
   def filter_table(self, **event_args):
-    self.repeating_panel_metadata.items = anvil.server.call(
-      'search_songs',
-      self.text_box_filter_table.text
-    )
+    if self.text_box_filter_table.text:
+      self.repeating_panel_metadata.items = anvil.server.call(
+        'search_songs',
+        self.text_box_filter_table.text
+      )
+    else:
+      alert('Please enter a search term.')
 
   def btn_new_record_click(self, **event_args):
     """This method is called when the button is clicked"""
+    if self.text_box_new_album.text and self.text_box_new_artist and self.text_box_new_song and self.text_box_new_tempo and self.text_box_new_year:
+      if self.text_box_new_tempo.text.strip().isdigit() and self.text_box_new_year.text.strip().isdigit():
+        if anvil.server.call('get_write_perms'):
+          title = self.text_box_new_song.text
+          artist = self.text_box_new_artist.text
+          album = self.text_box_new_album.text
+          year = int(self.text_box_new_year.text)
+          tempo = int(self.text_box_new_tempo.text)
+          genre = self.drop_down_new_genre.selected_value
     
-    if anvil.server.call('get_write_perms'):
-      title = self.text_box_new_song.text
-      artist = self.text_box_new_artist.text
-      album = self.text_box_new_album.text
-      year = int(self.text_box_new_year.text)
-      tempo = int(self.text_box_new_tempo.text)
-      genre = self.drop_down_new_genre.selected_value
-
-      anvil.server.call('add_song',
-                      title=title,
-                      artist=artist,
-                      album=album,
-                      year=year,
-                      tempo=tempo,
-                      genre=genre)
-
-      self.repeating_panel_metadata.items = anvil.server.call('get_songs')
+          anvil.server.call('add_song',
+                          title=title,
+                          artist=artist,
+                          album=album,
+                          year=year,
+                          tempo=tempo,
+                          genre=genre)
+    
+          self.repeating_panel_metadata.items = anvil.server.call('get_songs')
+        else:
+          alert('You do not have permission to edit the database.')
+    
+        self.text_box_new_song.text = ''
+        self.text_box_new_artist.text = ''
+        self.text_box_new_album.text = ''
+        self.text_box_new_year.text = ''
+        self.text_box_new_tempo.text = ''
+        self.drop_down_new_genre.selected_value = 'Alternative'
+      else:
+        alert('You must enter a valid number for tempo and release year values.')
+        self.text_box_new_tempo.text = ''
+        self.text_box_new_year.text = ''
     else:
-      alert('You do not have permission to edit the database.')
-
-    self.text_box_new_song.text = ''
-    self.text_box_new_artist.text = ''
-    self.text_box_new_album.text = ''
-    self.text_box_new_year.text = ''
-    self.text_box_new_tempo.text = ''
-    self.drop_down_new_genre.selected_value = 'Alternative'
+      alert('Please make sure all boxes are filled.')
