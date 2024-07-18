@@ -5,7 +5,8 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import datetime
+from datetime import datetime
+import anvil.media
 
 closest_matches = []
 
@@ -26,10 +27,39 @@ class scr_result(scr_resultTemplate):
     self.lbl_album2.text = closest_matches[1][2] + " (" + str(closest_matches[1][3]) + ")"
     self.lbl_album3.text = closest_matches[2][2] + " (" + str(closest_matches[2][3]) + ")"
 
-  def link_1_click(self, **event_args):
+  def btn_head_log_out_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    log_out()
+
+  def btn_head_help_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass
 
-  def link_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+  def btn_return_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.open_form('scr_main')
+
+  def btn_log_out_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    log_out()
+
+  def create_text_file(self):
+    file_name = 'output_songs_' + datetime.today().strftime('%Y-%m-%d') + '.txt'
+    file_contents = ""
+    for i in range(0, 3):
+      file_contents += (closest_matches[i][0])
+      file_contents += (closest_matches[i][1])
+      file_contents += (closest_matches[i][2])
+      file_contents += str(closest_matches[i][3])
+      file_contents += str(closest_matches[i][4])
+      file_contents += (closest_matches[i][5])
+    out_file = anvil.BlobMedia('text/plain', file_contents, name=file_name)
+    anvil.media.download(out_file)
+
+  def btn_save_file_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.create_text_file()
+
+def log_out():
+  anvil.users.logout()
+  anvil.open_form('scr_login')

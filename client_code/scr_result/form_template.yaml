@@ -18,16 +18,20 @@ components:
       type: ColumnPanel
       layout_properties: {expand: true}
       components:
+      - name: match2_image
+        properties: {source: _/theme/silver-medal.png, height: '80'}
+        type: Image
+        layout_properties: {grid_position: 'FAZKFX,DGJJEX'}
       - name: lbl_match2
-        properties: {role: headline}
+        properties: {role: headline, align: center}
         type: Label
         layout_properties: {grid_position: 'NRJWWC,OZGBKU', full_width_row: false}
       - name: lbl_artist2
-        properties: {spacing_below: none}
+        properties: {spacing_below: none, align: center}
         type: Label
         layout_properties: {grid_position: 'NPFJCE,ZWQBYQ'}
       - name: lbl_album2
-        properties: {spacing_above: none}
+        properties: {spacing_above: none, align: center}
         type: Label
         layout_properties: {grid_position: 'IPQPNA,KHLDTS'}
     - name: column_panel_1
@@ -35,50 +39,78 @@ components:
       type: ColumnPanel
       layout_properties: {expand: true}
       components:
+      - name: match1_image
+        properties: {source: _/theme/gold-medal.png, display_mode: shrink_to_fit, spacing_above: small, height: '120'}
+        type: Image
+        layout_properties: {grid_position: 'WMZTKD,MTGRMJ'}
       - name: lbl_match1
-        properties: {role: headline}
+        properties: {role: headline, align: center}
         type: Label
         layout_properties: {grid_position: 'AKEZRI,UDJJXW'}
       - name: lbl_artist1
-        properties: {spacing_below: none}
+        properties: {spacing_below: none, align: center}
         type: Label
         layout_properties: {grid_position: 'SHRBFD,TVWXID'}
       - name: lbl_album1
-        properties: {spacing_above: none}
+        properties: {spacing_above: none, align: center}
         type: Label
         layout_properties: {grid_position: 'CJYXFN,LKGUJX'}
     - name: column_panel_3
-      properties: {spacing_above: large}
+      properties: {spacing_above: medium}
       type: ColumnPanel
       layout_properties: {expand: true}
       components:
+      - name: match3_image
+        properties: {source: _/theme/bronze-medal.png, height: '80'}
+        type: Image
+        layout_properties: {grid_position: 'BKXUQR,YKCYLL'}
       - name: lbl_match3
-        properties: {role: headline}
+        properties: {role: headline, align: center}
         type: Label
         layout_properties: {grid_position: 'QLFCGR,YLNOEZ'}
       - name: lbl_artist3
-        properties: {spacing_below: none}
+        properties: {spacing_below: none, align: center}
         type: Label
         layout_properties: {grid_position: 'WPVYZR,YVGISD'}
       - name: lbl_album3
-        properties: {spacing_above: none}
+        properties: {spacing_above: none, align: center}
         type: Label
         layout_properties: {grid_position: 'LVMNMT,QUOPMP'}
+  - name: flow_panel_2
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'OZIGRW,TVEXHA'}
+    components:
+    - name: btn_return
+      properties: {text: Back to Home, role: primary-color}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: btn_return_click}
+    - name: btn_save_file
+      properties: {text: Save to File}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: btn_save_file_click}
+    - name: btn_log_out
+      properties: {text: Log Out}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: btn_log_out_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
   components:
-  - name: link_2
+  - name: btn_head_help
     properties: {tooltip: Help, icon: 'fa:question'}
     type: Link
     layout_properties: {}
-    event_bindings: {click: link_2_click}
-  - name: link_1
+    event_bindings: {click: btn_head_help_click}
+  - name: btn_head_log_out
     properties: {text: '', icon: 'fa:sign-out', tooltip: Log Out}
     type: Link
     layout_properties: {}
-    event_bindings: {click: link_1_click}
+    event_bindings: {click: btn_head_log_out_click}
 - name: headline_1
   properties: {role: headline, text: Your Matches}
   type: Label
