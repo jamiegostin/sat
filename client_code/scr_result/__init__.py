@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
 import anvil.media
+from ..scr_help import set_prev_form
 
 closest_matches = []
 
@@ -33,7 +34,8 @@ class scr_result(scr_resultTemplate):
 
   def btn_head_help_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    set_prev_form('scr_result')
+    anvil.open_form('scr_help')
 
   def btn_return_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -45,14 +47,14 @@ class scr_result(scr_resultTemplate):
 
   def create_text_file(self):
     file_name = 'output_songs_' + datetime.today().strftime('%Y-%m-%d') + '.txt'
-    file_contents = ""
+    file_contents = b""
     for i in range(0, 3):
-      file_contents += (closest_matches[i][0])
-      file_contents += (closest_matches[i][1])
-      file_contents += (closest_matches[i][2])
-      file_contents += str(closest_matches[i][3])
-      file_contents += str(closest_matches[i][4])
-      file_contents += (closest_matches[i][5])
+      file_contents += b'Title: ' + bytes(closest_matches[i][0], 'utf-8') + b'\n'
+      file_contents += b'Artist: ' + bytes(closest_matches[i][1], 'utf-8') + b'\n'
+      file_contents += b'Album: ' + bytes(closest_matches[i][2], 'utf-8') + b'\n'
+      file_contents += b'Year: ' + bytes(str(closest_matches[i][3]), 'utf-8') + b'\n'
+      file_contents += b'Tempo: ' + bytes(str(closest_matches[i][4]), 'utf-8') + b'\n'
+      file_contents += b'Genre: ' + bytes(closest_matches[i][5], 'utf-8')+ b'\n\n'
     out_file = anvil.BlobMedia('text/plain', file_contents, name=file_name)
     anvil.media.download(out_file)
 

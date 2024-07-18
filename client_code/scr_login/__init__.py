@@ -5,6 +5,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..scr_help import set_prev_form
 
 class scr_login(scr_loginTemplate):
   def __init__(self, **properties):
@@ -40,3 +41,8 @@ class scr_login(scr_loginTemplate):
         open_form('scr_main')
       except anvil.users.AuthenticationFailed:
         alert('The username or password is incorrect.')
+
+  def link_help_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    set_prev_form('scr_login')
+    anvil.open_form('scr_help')

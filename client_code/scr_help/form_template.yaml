@@ -1,0 +1,61 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: button_back
+    properties: {text: go back, icon: 'fa:arrow-left', align: left}
+    type: Button
+    layout_properties: {grid_position: 'SRGEST,MGCTDE'}
+    event_bindings: {click: button_back_click}
+  - name: label_howto_1
+    properties: {text: How to use, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'KCJQUX,LXJOSQ'}
+  - name: label_howto_2
+    properties:
+      text: |-
+        Create an account or log in to an existing account using any email and password.
+        Once logged in, select a song from the database. Use the search box to filter through any catagory.
+
+        Artists and managers can also create new entries or edit existing ones.
+        To create a new entry, fill out the top row accordingly and press the "+" button when finished.
+        To edit an existing entry, edit any of the text boxes. Be sure to press the save icon for each edited row when finished.
+
+        Once you have chosen a song, press the arrow button on that row, the top three matches will be displayed.
+        Matches are determined by the most similar songs sorted by tempo from the same genre as your selection.
+        On the results page, the matches can be saved to a text file to be downloaded locally and viewed later.
+    type: Label
+    layout_properties: {grid_position: 'RRWKUR,ZSEENO'}
+  - name: label_about_1
+    properties: {text: About, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'ZPTHUF,ZJCVZH'}
+  - name: label_about_2
+    properties:
+      text: |-
+        Attributions:
+        Result page icons have been designed using images from Flaticon.com
+    type: Label
+    layout_properties: {grid_position: 'ESSJGT,HRKWNU'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: link_log_out
+    properties: {text: Log Out, icon: 'fa:sign-out'}
+    type: Link
+    layout_properties: {}
+- name: headline_1
+  properties:
+    role: headline
+    text: |
+      Help
+  type: Label
+  layout_properties: {slot: title}

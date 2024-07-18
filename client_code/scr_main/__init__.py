@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+from ..scr_help import set_prev_form
 
 
 class scr_main(scr_mainTemplate):
@@ -66,3 +67,8 @@ class scr_main(scr_mainTemplate):
         self.text_box_new_year.text = ''
     else:
       alert('Please make sure all boxes are filled.')
+
+  def link_help_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    set_prev_form('scr_main')
+    anvil.open_form('scr_help')
