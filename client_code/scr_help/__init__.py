@@ -11,11 +11,18 @@ class scr_help(scr_helpTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+    # Hide "log out" button if no user is logged in
+    if not anvil.users.get_user():
+      self.link_log_out.visible = False
   
   def button_back_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.open_form(prev_form)
+
+  def link_log_out_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    anvil.users.logout()
+    anvil.open_form('scr_login')
 
 def set_prev_form(form):
   global prev_form

@@ -12,6 +12,7 @@ components:
     properties: {icon: 'fa:question', text: Help}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_help_click}
 - name: headline_log_in
   properties: {role: headline, icon: '', text: Create Account}
   type: Label

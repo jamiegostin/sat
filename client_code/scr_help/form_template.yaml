@@ -39,6 +39,10 @@ components:
   - name: label_about_2
     properties:
       text: |-
+        SoundFound
+        Version 1
+        Created by Jamie Gostin
+
         Attributions:
         Result page icons have been designed using images from Flaticon.com
     type: Label
@@ -52,6 +56,7 @@ components:
     properties: {text: Log Out, icon: 'fa:sign-out'}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_log_out_click}
 - name: headline_1
   properties:
     role: headline

@@ -5,6 +5,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..scr_help import set_prev_form
 
 class scr_signup(scr_signupTemplate):
   def __init__(self, **properties):
@@ -55,3 +56,8 @@ class scr_signup(scr_signupTemplate):
   def radio_class_artist_clicked(self, **event_args):
     """This method is called when this radio button is selected"""
     pass
+
+  def link_help_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    set_prev_form('scr_signup')
+    anvil.open_form('scr_help')

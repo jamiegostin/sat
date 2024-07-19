@@ -23,6 +23,14 @@ components:
   type: ColumnPanel
   layout_properties: {slot: default}
   components:
+  - name: label_log_in
+    properties:
+      text: |-
+        Welcome to SoundFound!
+        Please log in below
+      bold: false
+    type: Label
+    layout_properties: {grid_position: 'QRIJWZ,INXWEN'}
   - name: text_box_email
     properties: {placeholder: Email}
     type: TextBox
@@ -58,11 +66,6 @@ components:
       type: Button
       layout_properties: {}
       event_bindings: {click: log_in}
-    - name: chk_remember
-      properties: {text: Remember me}
-      type: CheckBox
-      layout_properties: {}
-      event_bindings: {change: chk_remember_change}
   - name: flow_panel_2
     properties: {spacing: none}
     type: FlowPanel

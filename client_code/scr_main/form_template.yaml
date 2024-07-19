@@ -90,6 +90,6 @@ components:
     layout_properties: {}
     event_bindings: {click: link_1_click}
 - name: headline_1
-  properties: {role: headline, text: Main Menu}
+  properties: {role: headline, text: SoundFound, align: left}
   type: Label
   layout_properties: {slot: title}

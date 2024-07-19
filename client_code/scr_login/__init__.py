@@ -25,19 +25,14 @@ class scr_login(scr_loginTemplate):
     """This method is called when the link is clicked"""
     open_form('scr_signup')
 
-  def chk_remember_change(self, **event_args):
-    """This method is called when this checkbox is checked or unchecked"""
-    pass
-
   def log_in(self, **event_args):
     if self.text_box_email.text == '' or self.text_box_pass.text == '':
       alert('You must enter a username and password.')
     else:
       email = self.text_box_email.text
       password = self.text_box_pass.text
-      remember = self.chk_remember.checked
       try:
-        anvil.users.login_with_email(email, password, remember)
+        anvil.users.login_with_email(email, password)
         open_form('scr_main')
       except anvil.users.AuthenticationFailed:
         alert('The username or password is incorrect.')
