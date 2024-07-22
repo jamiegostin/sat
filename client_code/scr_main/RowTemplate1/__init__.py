@@ -39,12 +39,16 @@ class RowTemplate1(RowTemplate1Template):
             alert('Entry was edited successfully.')
           else:
             alert('A duplicate entry already exists.')
+            self.reset_table()
         else:
           alert('You must enter a valid number for tempo and release year values.')
+          self.reset_table()
       else:
         alert('Please make sure all boxes are filled.')
+        self.reset_table()
     else:
       alert('You do not have permission to edit the database.')
+      self.reset_table()
   
   def button_compare_song_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -57,3 +61,12 @@ class RowTemplate1(RowTemplate1Template):
         results.append(k)
 
     anvil.open_form('scr_result')
+
+  # Function to reset unsaved changes
+  def reset_table(self):
+    self.text_box_edit_song.text = self.item['Title']
+    self.text_box_edit_artist.text = self.item['Artist']
+    self.text_box_edit_album.text = self.item['Album']
+    self.text_box_edit_year.text = self.item['Year']
+    self.text_box_edit_tempo.text = self.item['BPM']
+    self.drop_down_edit_genre.selected_value = self.item['Genre']
