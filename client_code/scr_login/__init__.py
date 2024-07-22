@@ -27,7 +27,7 @@ class scr_login(scr_loginTemplate):
 
   def log_in(self, **event_args):
     if self.text_box_email.text == '' or self.text_box_pass.text == '':
-      alert('You must enter a username and password.')
+      alert('You must enter an email and password.')
     else:
       email = self.text_box_email.text
       password = self.text_box_pass.text

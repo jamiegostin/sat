@@ -28,7 +28,7 @@ class scr_signup(scr_signupTemplate):
   def btn_signup_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.text_box_email.text == '' or self.text_box_pass.text == '':
-      alert('You must enter a username and password.')
+      alert('You must enter an email and password.')
     else:
       if not self.radio_class_artist.selected and not self.radio_class_user.selected:
         alert('You must select a user type.')
