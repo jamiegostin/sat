@@ -19,7 +19,7 @@ components:
       layout_properties: {}
     - name: drop_down_sort
       properties:
-        items: [Title, Artist, Album, Year, Tempo, Genre]
+        items: [Title, Artist, Album, Year, BPM, Genre]
       type: DropDown
       layout_properties: {}
       event_bindings: {change: sort_change}
