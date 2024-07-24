@@ -8,6 +8,29 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - name: flow_panel_sorting
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'HRBFSA,ACMBWX'}
+    components:
+    - name: label_sorting
+      properties: {text: 'Sort by:'}
+      type: Label
+      layout_properties: {}
+    - name: drop_down_sort
+      properties:
+        items: [Title, Artist, Album, Year, Tempo, Genre]
+      type: DropDown
+      layout_properties: {}
+      event_bindings: {change: sort_change}
+      data_bindings:
+      - {property: selected_value, code: '''Artist''', writeback: false}
+    - name: drop_down_ascend
+      properties:
+        items: [Ascending, Descending]
+      type: DropDown
+      layout_properties: {}
+      event_bindings: {change: sort_change}
   - name: data_grid_1
     properties:
       columns:
@@ -84,11 +107,11 @@ components:
     type: Link
     layout_properties: {}
     event_bindings: {click: link_help_click}
-  - name: link_1
+  - name: link_logout
     properties: {text: '', icon: 'fa:sign-out', tooltip: Log Out}
     type: Link
     layout_properties: {}
-    event_bindings: {click: link_1_click}
+    event_bindings: {click: link_logout_click}
 - name: headline_1
   properties: {role: headline, text: SoundFound, align: left}
   type: Label

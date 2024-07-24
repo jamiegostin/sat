@@ -17,12 +17,15 @@ class scr_main(scr_mainTemplate):
     # Initialise the dataset
     self.repeating_panel_metadata.items = anvil.server.call('get_songs')
 
-  def link_1_click(self, **event_args):
-    """This method is called when the link is clicked"""
+  def link_logout_click(self, **event_args):
+    """Log out the current user and return to login screen"""
     anvil.users.logout()
     open_form('scr_login')
 
   def filter_table(self, **event_args):
+    '''
+    Filter repeating panel results according to search textbox term
+    '''
     if self.text_box_filter_table.text:
       self.repeating_panel_metadata.items = anvil.server.call(
         'search_songs',
@@ -33,6 +36,9 @@ class scr_main(scr_mainTemplate):
       self.repeating_panel_metadata.items = anvil.server.call('get_songs')
 
   def btn_new_record_click(self, **event_args):
+    '''
+    Attempt to create a new record in the database according to text box values
+    '''
     # Ensure existence of input
     if self.text_box_new_album.text and self.text_box_new_artist.text and self.text_box_new_song.text and self.text_box_new_tempo.text and self.text_box_new_year.text:
 
@@ -86,5 +92,15 @@ class scr_main(scr_mainTemplate):
       alert('Please make sure all boxes are filled.')
 
   def link_help_click(self, **event_args):
+    '''Opens the help screen'''
     set_prev_form('scr_main')
     anvil.open_form('scr_help')
+
+  def sort_change(self, **event_args):
+    """This method is called when either of the "sort by" dropdowns are modified"""
+    if self.drop_down_ascend.selected_value == 'Ascending':
+      ascending = True
+    else:
+      ascending = False
+    
+    self.repeating_panel_metadata.items = anvil.server.call('sort_songs', self.drop_down_sort.selected_value, ascending)
