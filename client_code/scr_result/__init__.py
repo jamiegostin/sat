@@ -53,7 +53,7 @@ class scr_result(scr_resultTemplate):
       file_contents += b'Artist: ' + bytes(closest_matches[i][1], 'utf-8') + b'\n'
       file_contents += b'Album: ' + bytes(closest_matches[i][2], 'utf-8') + b'\n'
       file_contents += b'Year: ' + bytes(str(closest_matches[i][3]), 'utf-8') + b'\n'
-      file_contents += b'Tempo: ' + bytes(str(closest_matches[i][4]), 'utf-8') + b'\n'
+      file_contents += b'Tempo: ' + bytes(str(closest_matches[i][4]), 'utf-8') + b' BPM\n'
       file_contents += b'Genre: ' + bytes(closest_matches[i][5], 'utf-8')+ b'\n\n'
     out_file = anvil.BlobMedia('text/plain', file_contents, name=file_name)
     anvil.media.download(out_file)

@@ -21,15 +21,15 @@ components:
     properties:
       text: |-
         Create an account or log in to an existing account using any email and password.
-        Once logged in, select a song from the database. Use the search box to filter through any catagory.
-
-        Artists and managers can also create new entries or edit existing ones.
-        To create a new entry, fill out the top row accordingly and press the "+" button when finished.
-        To edit an existing entry, edit any of the text boxes. Be sure to press the save icon for each edited row when finished.
+        Once logged in, select a song from the database. Use the search box to filter through any category.
 
         Once you have chosen a song, press the arrow button on that row, the top three matches will be displayed.
         Matches are determined by the most similar songs sorted by tempo from the same genre as your selection.
         On the results page, the matches can be saved to a text file to be downloaded locally and viewed later.
+
+        Artists and managers can also create new entries or edit existing ones:
+        To create a new entry, fill out the top row accordingly and press the "+" button when finished.
+        To edit an existing entry, edit any of the text boxes. Be sure to press the save icon for each edited row when finished.
     type: Label
     layout_properties: {grid_position: 'RRWKUR,ZSEENO'}
   - name: label_about_1
