@@ -36,7 +36,7 @@ components:
   - {property: text, code: 'self.item[''BPM'']', writeback: false}
 - name: drop_down_edit_genre
   properties:
-    items: [Alternative, Rock, Hip-hop, Soul, R&B]
+    items: [Alternative, Rock, Hip-hop, Soul, Jazz, R&B]
   type: DropDown
   layout_properties: {column: GXQGLP}
   data_bindings:

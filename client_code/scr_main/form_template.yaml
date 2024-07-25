@@ -76,7 +76,7 @@ components:
         layout_properties: {column: OJLQEN}
       - name: drop_down_new_genre
         properties:
-          items: [Alternative, Rock, Hip-hop, Soul, R&B]
+          items: [Alternative, Rock, Hip-hop, Soul, Jazz, R&B]
         type: DropDown
         layout_properties: {column: GXQGLP}
         data_bindings: []
