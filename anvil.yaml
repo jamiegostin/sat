@@ -22,7 +22,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-metadata: {title: SAT}
+metadata: {title: SoundFound}
 db_schema:
   users:
     title: Users
